@@ -34,6 +34,12 @@ function init() {
 
     // Calls this every frame
     function loop() {
+
+        if (requestReset) {
+            traceCloud.updateCount(0);
+            requestReset = false;
+        }
+
         const tracersCount = parseInt(inputCountTracers.value);
         if (!isNaN(tracersCount) && isFinite(tracersCount)) {
             traceCloud.updateCount(tracersCount, () => {
@@ -46,9 +52,9 @@ function init() {
                     ]);
                 newTrace.update(
                     [
-                        Math.random() * 10,
-                        Math.random() * 10,
-                        Math.random() * 10
+                        Math.random() * 50 - 25,
+                        Math.random() * 50 - 25,
+                        Math.random() * 50 - 25
                     ]
                 );
 
@@ -173,7 +179,8 @@ let mouseX,
     mouseLeftDown,
     mouseRightDown,
     preventContextMenu,
-    deltaWheel = 0;
+    deltaWheel = 0,
+    requestReset;
 
 // Camera Variables
 let xOffset = 0,
@@ -573,6 +580,10 @@ function setup(rho, sigma, beta, length, count) {
     inputBeta.value = beta;
     inputMaxLength.value = length;
     inputCountTracers.value = count;
+}
+
+function reset() {
+    requestReset = true;
 }
 
 function transformRotation(xRotation, yRotation) {
