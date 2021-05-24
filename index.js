@@ -568,11 +568,12 @@ function initEvents() {
 }
 
 function setup(rho, sigma, beta, length, count) {
+    debugger;
     inputRho.value = rho;
     inputSigma.value = sigma;
     inputBeta.value = beta;
-    inputMaxLength = length;
-    inputCountTracers = count;
+    inputMaxLength.value = length;
+    inputCountTracers.value = count;
 }
 
 function transformRotation(xRotation, yRotation) {
