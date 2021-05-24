@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>Lorenz Attractor</title>
+    </head>
+    <body onload="init()">
+        <div id="options">
+            <div>
+                <p>
+                    <b>Axes:</b><br/>
+                    <label>
+                        <input type="checkbox" id="show-axes" name="show-axes" checked/>
+                        Show Axes
+                    </label>
+                </p>
+                <p>
+                    <b>Planes:</b><br/>
+                    <label>
+                        <input type="checkbox" id="show-x-plane" name="show-x-plane"/>
+                        Show X plane
+                    </label><br/>
+
+                    <label>
+                        <input type="checkbox" id="show-y-plane" name="show-y-plane"/>
+                        Show Y plane
+                    </label><br/>
+
+                    <label>
+                        <input type="checkbox" id="show-z-plane" name="show-z-plane" checked/>
+                        Show Z plane
+                    </label>
+                </p>
+                <p>
+                    <b>Values: </b><br/>
+                    ρ = <input id="rho-input" type="number" value="28"><br>
+                    σ = <input id="sigma-input" type="number" value="10"><br>
+                    β = <input id="beta-input" type="number" value="2.66"><br>
+                </p>
+                <p>
+                    <b>Traces: </b><br/>
+                    Max Length: <input id="max-length-input" type="number" value="1000" step="1"><br>
+                    # of Traces: <input id="traces-count-input" type="number" value="5" step="1"><br>
+                </p>
+                <p>
+                    <b>Examples: </b><br/>
+                    <button onclick="setup(28, 10, 2.66, 1000, 5)">Default</button>
+                    <button onclick="setup(28, 10, 2.66, 10, 50)">Many short</button>
+                </p>
+            </div>
+            <div>
+            <small>Left-mouse button: Rotate<br/> Right-mouse button: Translate X and Y<br/> Rotate Mouse Wheel: Translate Z</small>
+            <br/>
+            <canvas id="canvas" width="800" height="600" resi> </canvas>
+            </div>
+        </div>
+
+
+
+
+    </body>
+
+    <script src="./matrices.js"></script>
+    <script src="./index.js"></script>
+
+    <style>
+        #canvas {
+            background-color: black;
+        }
+        #options {
+            display: flex;
+        }
+        #options > div {
+            margin: 10px;
+        }
+    </style>
+</html>
